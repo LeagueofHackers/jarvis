@@ -1,0 +1,28 @@
+1.
+What would you like to have for snacks?
+Manish> I want to have 2 Gobi Manchurian
+Manpreet> 1 Paneer Makhani
+
+2.
+Anything else?
+> yeah -> 4, nah -> 3a
+
+3a.
+Your final order will be 
+	2 of Gobi Manchurian
+	1 of Paneer Makhani
+These will be for 
+	Manish,
+	Manpreet. 
+These could be delivered by 8PM. Confirm?
+> yeah -> 5, nah -> 3b
+
+3b.
+Goodbye
+
+4.
+What else?
+Monish> 1 of Paneer Makhani ->2.
+
+5.
+Done

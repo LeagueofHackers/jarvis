@@ -1,0 +1,10 @@
+DONE
+> Aggregation
+
+TODO
+> Jarvis should not respond to each and every message.
+> Persist bot access token for its team-id
+> Start all bots from storage on init()
+> Test new team integration scenario. Getting error in controller.spawn statement.
+> ngRock as heroku not allowing Botkit file storage feature
+> NLP

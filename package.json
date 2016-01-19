@@ -1,0 +1,20 @@
+{
+  "name": "jarvis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "'"
+  ],
+  "author": "monish",
+  "license": "MIT",
+  "dependencies": {
+    "botkit": "0.0.5",
+    "express": "^4.13.3",
+    "http": "0.0.0",
+    "request": "^2.67.0"
+  }
+}
