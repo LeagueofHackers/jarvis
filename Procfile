@@ -1,1 +1,1 @@
-slackbot: node index.js
+web: npm start

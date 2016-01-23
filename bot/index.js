@@ -5,7 +5,6 @@ var express = require("express");
 var app = express();
 var CONSTANTS = require('./CONSTANTS.js');
 var controller = Botkit.slackbot();
-var routes = require('./routes.js')(app, controller);
 var server = app.listen(CONSTANTS.PORT_NO, function () {
     console.log("Listening on port %s...", server.address().port);
 });
