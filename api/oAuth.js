@@ -2,7 +2,7 @@ var CONSTANTS = require('../bot/CONSTANTS.js');
 var BotActions = require('../bot/botActions.js');
 var request = require("request");
 
-function getBotToken (code, controller) {
+function getBotToken (code, controller, callback) {
 	console.log("	In getBotToken, code:" + code);
 	var options = {
 		host: 'https://slack.com',
@@ -25,10 +25,14 @@ function getBotToken (code, controller) {
 
 		console.log("	In getBotToken, BODY:" + JSON.stringify(body));
 
-		if(body.ok){
-			var botAccessToken = bot.bot_access_token
+		if(body.ok !== 'false'){
+			var botAccessToken = body.bot.bot_access_token
 			BotActions.handleNewBotToken(botAccessToken, controller);		
+			callback({team_name: body.team_name});
+		}else{
+			callback({error:body.error});
 		}
+		
 	});
 }
 
