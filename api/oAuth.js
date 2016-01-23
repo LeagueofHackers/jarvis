@@ -8,14 +8,14 @@ function getBotToken (code, controller) {
 		host: 'https://slack.com',
 		path: '/api/oauth.access?client_id=' + CONSTANTS.CLIENT_ID + '&client_secret=' + CONSTANTS.CLIENT_SECRET + '&code=' + code + '&redirect_url=' + CONSTANTS.REDIRECT_URI,
 		method: 'GET'
-	};
-
+	},
+	uri = options.host + options.path;
+	console.log("	In getBotToken, REQUEST:"+JSON.stringify(options));
 	request({
-		uri: options.host + options.path,
+		uri: uri,
 		method: options.method
 	}, function(error, response, body) {
-		console.log("	BODY:"+body);
-		console.log("	BODY TYPEOF:" + typeof(body));
+		console.log("	In getBotToken, BODY:"+body);
 
 		// TODO: handle error case: 
 		// BODY:{"ok":false,"error":"invalid_code"}	  
@@ -23,7 +23,7 @@ function getBotToken (code, controller) {
 
 		body = JSON.parse(body);
 
-		console.log("	BODY:" + JSON.stringify(body));
+		console.log("	In getBotToken, BODY:" + JSON.stringify(body));
 
 		if(body.ok){
 			var botAccessToken = bot.bot_access_token
