@@ -2,9 +2,9 @@
   "name": "jarvis",
   "version": "1.0.0",
   "description": "",
-  "main": "bot/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node bot/index.js"
+    "start": "node index.js"
   },
   "keywords": [
     "'"

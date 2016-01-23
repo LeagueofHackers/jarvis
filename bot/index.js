@@ -1,12 +1,9 @@
 var Botkit = require('botkit');
-var express = require("express");
-var app = express();
+var controller = Botkit.slackbot();
 var CONSTANTS = require('./CONSTANTS.js');
 var Storage = require('./storage.js');
-var controller = Botkit.slackbot();
 var BotActions = require('./botActions.js');
 var Conversation = require('./conversation.js');
-
 
 function init(){
 	var botToken = CONSTANTS.LEAGUE_OF_HACKERS_BOT_TOKEN;
@@ -34,7 +31,6 @@ function init(){
 	})
 }
 
-try{
-	init();
-}catch(e){console.log(e);}
-
+module.exports = {
+	init: init
+}
