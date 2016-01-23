@@ -1,9 +1,11 @@
 var CONSTANTS = require('./CONSTANTS.js');
 var request = require("request");
+var Botkit = require('botkit');
+var controller = Botkit.slackbot();
 
-function initBot(botAccessToken, controller){
+function initBot(botAccessToken){
 	console.log("	In initBot, botAccessToken:" + botAccessToken);
-	console.log("	In initBot, controller:" + controller);
+	console.log("	In initBot, controller:" + JSON.stringify(controller));
 	var bot = controller.spawn({
 	  token: botAccessToken
 	});
@@ -14,33 +16,16 @@ function initBot(botAccessToken, controller){
 	  }
 	});
 }
-function getBotToken (code, controller) {
-	console.log("	In getBotToken, code:" + code);
-	console.log("	In getBotToken, controller:" + controller);
-	var options = {
-	  host: 'https://slack.com',
-	  path: '/api/oauth.access?client_id=' + CONSTANTS.CLIENT_ID + '&client_secret=' + CONSTANTS.CLIENT_SECRET + '&code=' + code + '&redirect_url=' + CONSTANTS.REDIRECT_URI,
-	  method: 'GET'
-	};
 
-	request({
-		uri: options.host + options.path,
-		method: options.method
-	}, function(error, response, body) {
-	  console.log("	BODY:"+body);
-	  console.log("	BODY TYPEOF:" + typeof(body));
-	  
-	  //TODO: handle error case: BODY:{"ok":false,"error":"code_already_used"}
-	  
-	  bot = JSON.parse(body).bot;
-	  
-	  console.log("	BOT:" + JSON.stringify(bot));
-	  
-	  var botAccessToken = bot.bot_access_token
-	  initBot(botAccessToken, controller);
-	});
+function handleNewBotToken(botAccessToken) {
+	console.log("	In handleNewBotToken, botAccessToken:" + botAccessToken);
+	
+	// TODO: Store botAccessToken
+	
+	
 }
 
 module.exports = {
-	initBot: initBot
+	initBot: initBot,
+	handleNewBotToken: handleNewBotToken
 }
