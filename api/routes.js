@@ -3,7 +3,7 @@
  */
 var OAuthLogic = require('./oAuth.js');
 
-function appRouter(app) {
+function appRouter(app, controller) {
 	console.log("	In appRouter, app:" + app);
 	app.get("/", function(req, res) {
 		console.log('In / route');
@@ -14,7 +14,7 @@ function appRouter(app) {
 		if(query.error){
 			resText = "Jarvis app could not be added to your team due to error: " + query.error;
 		}else{
-			OAuthLogic.getBotToken(query.code);
+			OAuthLogic.getBotToken(query.code, controller);
 			resText = 'Jarvis app is added to your slack team!';
 		}
 		res.send(resText);

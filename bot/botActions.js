@@ -1,9 +1,7 @@
 var CONSTANTS = require('./CONSTANTS.js');
 var request = require("request");
-var Botkit = require('botkit');
-var controller = Botkit.slackbot();
 
-function initBot(botAccessToken){
+function initBot(botAccessToken, controller){
 	console.log("	In initBot, botAccessToken:" + botAccessToken);
 	console.log("	In initBot, controller:" + JSON.stringify(controller));
 	var bot = controller.spawn({
@@ -17,7 +15,7 @@ function initBot(botAccessToken){
 	});
 }
 
-function handleNewBotToken(botAccessToken) {
+function handleNewBotToken(botAccessToken, controller) {
 	console.log("	In handleNewBotToken, botAccessToken:" + botAccessToken);
 	
 	// TODO: Store botAccessToken

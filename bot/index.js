@@ -1,11 +1,9 @@
-var Botkit = require('botkit');
-var controller = Botkit.slackbot();
 var CONSTANTS = require('./CONSTANTS.js');
 var Storage = require('./storage.js');
 var BotActions = require('./botActions.js');
 var Conversation = require('./conversation.js');
 
-function init(){
+function init(controller){
 	var botToken = CONSTANTS.LEAGUE_OF_HACKERS_BOT_TOKEN;
 	BotActions.initBot(botToken, controller);
 	
