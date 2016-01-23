@@ -5,7 +5,7 @@ var routes = require('./routes.js')(app);
 
 function init(){
 	var server = app.listen(CONSTANTS.API_PORT_NO, function () {
-	    console.log("Listening on port %s...", server.address().port);
+	    console.log("Listening for APIs on port %s...", server.address().port);
 	});	
 }
 
