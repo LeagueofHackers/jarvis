@@ -1,22 +1,9 @@
-var CONSTANTS = require('./CONSTANTS.js');
+var CONSTANTS = require('../bot/CONSTANTS.js');
+var BotActions = require('../bot/botActions.js');
 var request = require("request");
 
-function initBot(botAccessToken, controller){
-	console.log("	In initBot, botAccessToken:" + botAccessToken);
-	console.log("	In initBot, controller:" + controller);
-	var bot = controller.spawn({
-	  token: botAccessToken
-	});
-	bot.startRTM(function(err,bot,payload) {
-	  if (err) {
-		console.log('	ERR:', err);
-		throw new Error('Could not connect to Slack');
-	  }
-	});
-}
-function getBotToken (code, controller) {
+function getBotToken (code) {
 	console.log("	In getBotToken, code:" + code);
-	console.log("	In getBotToken, controller:" + controller);
 	var options = {
 	  host: 'https://slack.com',
 	  path: '/api/oauth.access?client_id=' + CONSTANTS.CLIENT_ID + '&client_secret=' + CONSTANTS.CLIENT_SECRET + '&code=' + code + '&redirect_url=' + CONSTANTS.REDIRECT_URI,
@@ -37,10 +24,10 @@ function getBotToken (code, controller) {
 	  console.log("	BOT:" + JSON.stringify(bot));
 	  
 	  var botAccessToken = bot.bot_access_token
-	  initBot(botAccessToken, controller);
+	  BotActions.storeNewBotToken(botAccessToken);
 	});
 }
 
 module.exports = {
-	initBot: initBot
+	getBotToken: getBotToken
 }
