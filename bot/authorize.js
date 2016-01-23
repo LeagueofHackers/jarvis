@@ -1,5 +1,7 @@
+var Botkit = require('botkit');
+var controller = Botkit.slackbot();
 
-function initBot(botAccessToken, controller){
+function initBot(botAccessToken){
 	console.log("	In initBot, botAccessToken:" + botAccessToken);
 	console.log("	In initBot, controller:" + controller);
 	var bot = controller.spawn({
