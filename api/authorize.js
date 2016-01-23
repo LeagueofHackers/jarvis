@@ -42,6 +42,5 @@ function getBotToken (code, controller) {
 }
 
 module.exports = {
-	getBotToken: getBotToken,
 	initBot: initBot
 }

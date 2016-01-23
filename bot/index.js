@@ -3,12 +3,12 @@ var express = require("express");
 var app = express();
 var CONSTANTS = require('./CONSTANTS.js');
 var controller = Botkit.slackbot();
-var Authorize = require('./aurthorize.js');
+var BotActions = require('./botActions.js');
 
 
 function init(){
 	var botToken = CONSTANTS.LEAGUE_OF_HACKERS_BOT_TOKEN;
-	Authorize.initBot(botToken, controller);
+	BotActions.initBot(botToken, controller);
 	
 	controller.hears(["I want to have .*"], ["direct_message", "direct_mention", "mention", "ambient"], function(bot, message) {
 
