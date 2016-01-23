@@ -25,7 +25,7 @@ function getBotToken (code, controller, callback) {
 
 		console.log("	In getBotToken, BODY:" + JSON.stringify(body));
 
-		if(body.ok !== 'false'){
+		if(body.ok !== false){
 			var botAccessToken = body.bot.bot_access_token
 			BotActions.handleNewBotToken(botAccessToken, controller);		
 			callback({team_name: body.team_name});
