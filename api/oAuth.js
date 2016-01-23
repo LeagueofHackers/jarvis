@@ -24,7 +24,7 @@ function getBotToken (code) {
 	  console.log("	BOT:" + JSON.stringify(bot));
 	  
 	  var botAccessToken = bot.bot_access_token
-	  BotActions.storeNewBotToken(botAccessToken);
+	  //BotActions.storeNewBotToken(botAccessToken);
 	});
 }
 

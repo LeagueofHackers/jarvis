@@ -7,9 +7,17 @@ function appRouter(app) {
 	console.log("	In appRouter, app:" + app);
 	app.get("/", function(req, res) {
 		console.log('In / route');
-		var code = req.query.code;
-		//OAuthLogic.getBotToken(code);
-		res.send('hello world');
+
+		var query = req.query,
+		    resText;
+		
+		if(query.error){
+			resText = "Jarvis app could not be added to your team due to error: " + query.error;
+		}else{
+			OAuthLogic.getBotToken(query.code);
+			resText = 'Jarvis app is added to your slack team!';
+		}
+		res.send(resText);
 	});
 }
  
