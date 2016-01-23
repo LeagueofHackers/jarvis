@@ -1,13 +1,8 @@
 var Botkit = require('botkit');
-//var RuleEngine = require('./RuleEngine.js'); //botRes = RuleEngine.getResponse(botInput); // message, type -> reply, ask
-//var NlpAdaptor = require('./NlpAdaptor.js'); //NlpAdaptor.parse(message);
 var express = require("express");
 var app = express();
 var CONSTANTS = require('./CONSTANTS.js');
 var controller = Botkit.slackbot();
-var server = app.listen(CONSTANTS.PORT_NO, function () {
-    console.log("Listening on port %s...", server.address().port);
-});
 var Authorize = require('./aurthorize.js');
 
 
