@@ -3,3 +3,6 @@ npm-debug.log
 db
 .env
 *~
+
+# IDE created files
+.idea
